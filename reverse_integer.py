@@ -1,4 +1,5 @@
 # January 27th, 2020
+# Python 3.8.1
 """
 7. Reverse Integer
     Given a 32-bit signed integer, reverse digits of an integer.
@@ -10,11 +11,8 @@
 """
 class Solution:
     def reverse(self, x: int) -> int:
-    """Original Attempt
-    Runtime: 28 ms, faster than 77.78% of Python3 submissions.
-    Memory Usage: 12.7 MB, faster than 100% of Python3 submissions.
-    """
-        rx = str()
+		"""Original Attempt"""
+		rx = str()
         if x >= 0:
             for char in str(x):
                 rx = char + rx
@@ -26,4 +24,12 @@ class Solution:
             return int(rx)
         else:
             return 0
-        
+		
+	def compact_rvs(self, x: int) -> int:
+		"""Walrus Time!"""
+		(rx := str(x)[::-1]) if x >= 0 else (rx := str(x)[0] + str(x)[1:][::-1])
+		if -2**31 <= int(x) <= 2**31 - 1:
+			return int(x)
+		else:
+			return 0
+		
