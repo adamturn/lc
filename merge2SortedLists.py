@@ -37,21 +37,18 @@ class Solution:
             low, hi = l2, l1
         out = newl.head
         while low != None:
-            if low.val == hi.val:
-                out.next = low
-                out = out.next
-                low = low.next
-            elif low.val < hi.val:
-                out.next = low
-                out = out.next
-                low = low.next
-            elif low.val > hi.val:
+            if low.val > hi.val:
                 out.next = hi
                 out = out.next
                 hi = hi.next
                 low, hi = hi, low
+            else:
+                out.next = low
+                out = out.next
+                low = low.next
         while hi != None:
             out.next = ListNode(hi.val)
             out = out.next
             hi = hi.next
+
         return newl.head
