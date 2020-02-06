@@ -1,1 +1,1 @@
-# lc progression for python3
+# leetcode progression for python3
